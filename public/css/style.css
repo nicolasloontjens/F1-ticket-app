@@ -1,0 +1,744 @@
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@500&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Rubik&display=swap);
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+}
+
+header {
+  overflow: hidden;
+  background-color: #E10600;
+  margin-bottom: 2rem;
+}
+header img {
+  float: left;
+  height: 8vh;
+  width: 8vw;
+  margin-left: 1rem;
+}
+header nav {
+  float: right;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding-right: 1rem;
+}
+header nav a {
+  line-height: 8vh;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  text-decoration: none;
+  font-family: "Noto Sans Mono", monospace;
+}
+
+@media screen and (max-width: 60rem) {
+  header img {
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+    display: block;
+    min-width: 100px;
+    min-height: 100px;
+  }
+  header nav {
+    float: none;
+  }
+  header nav a {
+    display: block;
+    line-height: 4vh;
+  }
+
+  body main .gp-list {
+    grid-template-columns: 1fr;
+  }
+  body main .gp-list .gp-div {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+    width: 40vw;
+  }
+  body main .drivers .information {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr 2fr;
+  }
+  body main .drivers .information div {
+    text-align: center;
+    display: block;
+    width: 99vw;
+    max-width: 99vw;
+  }
+}
+@media screen and (max-width: 80rem) {
+  .home .gp-list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  body .results {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+  }
+  body .results div {
+    max-height: 70vh;
+    margin-bottom: 50vh;
+  }
+  body .results canvas {
+    display: block;
+    max-height: 100vh;
+  }
+  body .results .information {
+    max-width: 100vw;
+  }
+}
+body {
+  background-color: #FAF8F4;
+}
+
+body[animation=true] {
+  background-color: #E10600;
+  overflow: hidden;
+}
+body[animation=true] input {
+  display: none;
+}
+body[animation=true] header {
+  display: none;
+}
+body[animation=true] .information {
+  display: none;
+}
+body[animation=true] .animation img {
+  position: absolute;
+  width: auto;
+  height: 200px;
+  top: 40%;
+  margin-left: -150px;
+  left: 50%;
+  -webkit-animation: speeding-car 0.4s linear infinite;
+          animation: speeding-car 0.4s linear infinite;
+}
+body[animation=true] .animation h1 {
+  position: absolute;
+  color: white;
+  font-family: "Rubik", sans-serif;
+  font-size: 2rem;
+  text-transform: uppercase;
+  left: 46%;
+  top: 60%;
+}
+body[animation=true] .animation .longfazers {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+body[animation=true] .animation .longfazers span {
+  position: absolute;
+  height: 2px;
+  width: 20%;
+  background: white;
+}
+body[animation=true] .animation .longfazers span:nth-child(1) {
+  top: 20%;
+  -webkit-animation: lf 0.6s linear infinite;
+          animation: lf 0.6s linear infinite;
+  -webkit-animation-delay: -5s;
+          animation-delay: -5s;
+}
+body[animation=true] .animation .longfazers span:nth-child(2) {
+  top: 40%;
+  -webkit-animation: lf2 0.8s linear infinite;
+          animation: lf2 0.8s linear infinite;
+  -webkit-animation-delay: -1s;
+          animation-delay: -1s;
+}
+body[animation=true] .animation .longfazers span:nth-child(3) {
+  top: 60%;
+  -webkit-animation: lf3 0.6s linear infinite;
+          animation: lf3 0.6s linear infinite;
+}
+body[animation=true] .animation .longfazers span:nth-child(4) {
+  top: 80%;
+  -webkit-animation: lf4 0.5s linear infinite;
+          animation: lf4 0.5s linear infinite;
+  -webkit-animation-delay: -3s;
+          animation-delay: -3s;
+}
+
+@-webkit-keyframes speeding-car {
+  0% {
+    transform: translate(2px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -3px) rotate(-0.5deg);
+  }
+  20% {
+    transform: translate(-2px, 0px) rotate(0.5deg);
+  }
+  30% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(0.5deg);
+  }
+  50% {
+    transform: translate(-1px, 3px) rotate(-0.5deg);
+  }
+  60% {
+    transform: translate(-1px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-0.5deg);
+  }
+  80% {
+    transform: translate(-2px, -1px) rotate(0.5deg);
+  }
+  90% {
+    transform: translate(2px, 1px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-0.5deg);
+  }
+}
+
+@keyframes speeding-car {
+  0% {
+    transform: translate(2px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -3px) rotate(-0.5deg);
+  }
+  20% {
+    transform: translate(-2px, 0px) rotate(0.5deg);
+  }
+  30% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(0.5deg);
+  }
+  50% {
+    transform: translate(-1px, 3px) rotate(-0.5deg);
+  }
+  60% {
+    transform: translate(-1px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-0.5deg);
+  }
+  80% {
+    transform: translate(-2px, -1px) rotate(0.5deg);
+  }
+  90% {
+    transform: translate(2px, 1px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-0.5deg);
+  }
+}
+@-webkit-keyframes lf {
+  0% {
+    left: 200%;
+  }
+  100% {
+    left: -200%;
+    opacity: 0;
+  }
+}
+@keyframes lf {
+  0% {
+    left: 200%;
+  }
+  100% {
+    left: -200%;
+    opacity: 0;
+  }
+}
+@-webkit-keyframes lf2 {
+  0% {
+    left: 200%;
+  }
+  100% {
+    left: -100%;
+    opacity: 0;
+  }
+}
+@keyframes lf2 {
+  0% {
+    left: 200%;
+  }
+  100% {
+    left: -100%;
+    opacity: 0;
+  }
+}
+@-webkit-keyframes lf3 {
+  0% {
+    left: 200%;
+  }
+  100% {
+    left: -100%;
+    opacity: 0;
+  }
+}
+@keyframes lf3 {
+  0% {
+    left: 200%;
+  }
+  100% {
+    left: -100%;
+    opacity: 0;
+  }
+}
+@-webkit-keyframes lf4 {
+  0% {
+    left: 200%;
+  }
+  100% {
+    left: -100%;
+    opacity: 0;
+  }
+}
+@keyframes lf4 {
+  0% {
+    left: 200%;
+  }
+  100% {
+    left: -100%;
+    opacity: 0;
+  }
+}
+#gp-map {
+  margin: 2% 0;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 60vh;
+}
+
+.home .ol-popup {
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #cccccc;
+  bottom: 12px;
+  left: -50px;
+  min-width: 280px;
+}
+.home .ol-popup a {
+  text-decoration: none;
+  color: #E10600;
+  padding-top: 1rem;
+}
+.home .ol-popup:after, .home .ol-popup:before {
+  top: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.home .ol-popup:after {
+  border-top-color: white;
+  border-width: 10px;
+  left: 48px;
+  margin-left: -10px;
+}
+.home .ol-popup:before {
+  border-top-color: #cccccc;
+  border-width: 11px;
+  left: 48px;
+  margin-left: -11px;
+}
+.home .ol-popup-closer {
+  text-decoration: none;
+  color: #E10600;
+  position: absolute;
+  top: 2px;
+  right: 8px;
+}
+.home .ol-popup-closer:after {
+  content: "✖";
+}
+
+.gp-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: auto;
+  width: 80%;
+  padding: 3%;
+}
+
+.gp-div {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 8rem 0 0;
+  max-width: 35ch;
+  color: white;
+  margin-bottom: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 1rem;
+  width: 40vw;
+}
+.gp-div .card {
+  padding: 1.5em;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 20%, black);
+  font-family: "Rubik", sans-serif;
+  border-radius: 0 0 1rem 1rem;
+}
+.gp-div .card h2 {
+  margin-bottom: 0.5rem;
+  size: 2rem;
+}
+.gp-div .card a {
+  display: inline-block;
+  padding: 7px;
+  margin-top: 1.2rem;
+  font-size: 1.1rem;
+  background-color: #E10600;
+  border-radius: 0.5rem;
+  text-decoration: underline;
+  color: white;
+}
+
+.order {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  font-family: "Noto Sans Mono", monospace;
+}
+.order h1 {
+  font-size: 3rem;
+  padding-bottom: 0.5rem;
+}
+.order #racedata h2 {
+  padding-top: 1rem;
+  font-size: 2rem;
+  border-top: 1px black solid;
+}
+.order #racedata h3 {
+  padding-top: 0.75rem;
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+}
+.order #racedata .warning {
+  color: red;
+  font-weight: bolder;
+  padding: 1rem 0;
+}
+.order #racedata img {
+  padding-top: 1rem;
+  max-width: 40%;
+  max-height: 40%;
+  width: auto;
+  height: auto;
+}
+.order .form form * {
+  display: block;
+  margin: auto;
+}
+.order .form form select {
+  margin: 1rem auto;
+  border: 1px solid darkgrey;
+  border-radius: 0.5rem;
+  background-color: #FAF8F4;
+  font-size: 1rem;
+  font-family: "Noto Sans Mono", monospace;
+  font-weight: bold;
+}
+.order .form form select option {
+  background-color: #FAF8F4;
+}
+.order .form form input {
+  border: none;
+  background-color: #E10600;
+  color: #FAF8F4;
+  font-family: "Noto Sans Mono", monospace;
+  font-weight: bolder;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  padding: 0.2rem 0.5rem;
+}
+.order .form form .hidden {
+  display: none;
+}
+
+.confirmation {
+  font-family: "Noto Sans Mono", monospace;
+  text-align: center;
+}
+.confirmation h1 {
+  font-size: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+.confirmation h2 {
+  font-size: 1rem;
+}
+.confirmation p {
+  padding-top: 1.1rem;
+}
+
+.profile {
+  font-family: "Rubik", sans-serif;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.profile .user {
+  padding-left: 1rem;
+}
+.profile .user .profile_picture img {
+  max-width: 40%;
+  max-height: 40%;
+  width: auto;
+  height: auto;
+  border: none;
+  margin-bottom: 1rem;
+}
+.profile .user .profile_picture input[type=submit] {
+  font-family: "Rubik", sans-serif;
+  padding: 0.4rem;
+  background-color: #E10600;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+.profile .user .profile_picture label {
+  display: inline-block;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  background-color: #E10600;
+  color: white;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.profile .user .profile_picture #avatar {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+.profile .user h1 {
+  margin: 1rem 0;
+  font-size: 2rem;
+}
+.profile .user p {
+  padding-bottom: 0.5rem;
+}
+.profile .user a {
+  display: inline-block;
+  margin-top: 1rem;
+  border: none;
+  background-color: #E10600;
+  color: #FAF8F4;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  padding: 0.5rem 0.7rem;
+}
+.profile .tickets {
+  text-align: center;
+}
+.profile .tickets h1 {
+  font-size: 2rem;
+  padding-bottom: 1rem;
+}
+.profile .tickets section {
+  width: 70%;
+  margin: auto;
+}
+.profile .tickets section div {
+  background-color: #292929;
+  color: white;
+  margin-bottom: 0.5rem;
+  border: 1px black solid;
+  border-radius: 0.6rem;
+  padding: 0.4rem;
+}
+.profile .tickets section div h1, .profile .tickets section div h2 {
+  display: inline-block;
+  font-size: 1.3rem;
+  padding-bottom: 0;
+  margin-bottom: 0.3rem;
+}
+.profile .tickets section div p {
+  padding-top: 0.4rem;
+  display: block;
+}
+.profile .tickets section div p:first-of-type {
+  font-size: 1.1rem;
+  padding-bottom: 0.4rem;
+}
+
+.results {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+.results #world-tour h1 {
+  text-align: center;
+  font-family: "Noto Sans Mono", monospace;
+}
+.results svg {
+  margin: auto;
+}
+.results #world-tour {
+  margin: auto;
+}
+.results .country {
+  fill: #b8b8b8;
+  stroke: #fff;
+  stroke-width: 0.5px;
+  stroke-linejoin: round;
+  transform: translate(-46%, -46%);
+}
+.results .graticule {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: 0.3;
+  stroke-width: 0.5px;
+}
+.results .graticule-outline {
+  fill: none;
+  stroke: #333;
+  stroke-width: 1.5px;
+}
+.results #hidden {
+  display: none;
+}
+.results .round .map {
+  height: 50rem;
+  width: 50rem;
+}
+.results #drivers-line-chart-id {
+  grid-column: 1/3;
+}
+.results div {
+  max-height: 50vh;
+}
+.results canvas {
+  display: block;
+  max-height: 50vh;
+}
+.results form {
+  display: block;
+  margin: auto;
+  width: 50%;
+  padding-bottom: 10vh;
+}
+.results form * {
+  font-family: "Noto Sans Mono", monospace;
+}
+.results form label:last-of-type {
+  padding-left: 2rem;
+}
+.results .information {
+  max-width: 50vw;
+}
+.results .information h1, .results .information h2, .results .information h3 {
+  margin: auto;
+  text-align: center;
+  font-family: "Rubik", sans-serif;
+  font-size: 4vh;
+  padding-bottom: 0.5rem;
+}
+
+.drivers #hidden {
+  display: none;
+}
+.drivers .form * {
+  width: 40vw;
+  margin: auto;
+  text-align: center;
+  font-family: "Rubik", sans-serif;
+  font-size: 5vh;
+  padding: 1vh 0;
+}
+.drivers .form form {
+  display: flex;
+}
+.drivers .form input {
+  flex: 1;
+  height: 4vh;
+  width: 35vw;
+  font-size: 3vh;
+  border: none;
+  background: #FAF8F4;
+  border-bottom: 3px black solid;
+}
+.drivers .form input:focus {
+  border: none;
+  outline: none;
+  border-bottom: 3px black solid;
+}
+.drivers .form a {
+  background-repeat: no-repeat;
+  background-position: 10px 5px;
+  background-size: 35% 80%;
+  height: 5vh;
+}
+.drivers .form a[muted=true] {
+  background-image: url("/images/mic-unmuted.png");
+}
+.drivers .form a[muted=false] {
+  background-image: url("/images/mic-muted.png");
+}
+.drivers .form li a {
+  background-image: none;
+  text-decoration: none;
+  color: #E10600;
+}
+.drivers .information {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+.drivers .information .asideinformation {
+  padding-left: 1vw;
+  word-break: normal;
+}
+.drivers .information .asideinformation .numbergradient h1 {
+  font-size: 4vw;
+  background: -webkit-linear-gradient(red, #ff8800);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.drivers .information .asideinformation * {
+  display: block;
+  padding-bottom: 1vh;
+  font-family: "Rubik", sans-serif;
+}
+.drivers .information .asideinformation a {
+  text-decoration: underline;
+  color: #E10600;
+  font-family: "Rubik", sans-serif;
+  font-weight: bold;
+}
+.drivers .information .charts canvas {
+  max-height: 50vh;
+  height: 50vh;
+}
+.drivers .information .charts .constructordrivers {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.drivers .information .charts .constructordrivers p {
+  display: inline-block;
+  font-family: "Noto Sans Mono", monospace;
+  padding: 1%;
+}
+.drivers .information .charts .constructordrivers p a {
+  text-decoration: none;
+  color: black;
+  text-decoration: underline;
+}
+.drivers .information .charts .constructordrivers p:hover a {
+  color: #E10600;
+  font-weight: bold;
+}
